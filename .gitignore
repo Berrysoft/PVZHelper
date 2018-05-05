@@ -3,3 +3,6 @@
 ################################################################################
 
 /.vs
+/PVZHelper/Debug
+/PVZHelper/Release
+/PVZHelper.Wpf/obj
