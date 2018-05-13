@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:PVZHelper.Wpf"
         xmlns:Themes="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero" x:Class="MainWindow"
         mc:Ignorable="d"
-        Title="PVZ修改器v1.8.8-WPF重制版" Height="615" Width="350" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen"
+        Title="PVZ修改器v1.9.10-WPF重制版" Height="615" Width="350" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen"
         Loaded="Window_InitGame" Icon="small.ico">
     <Window.Resources>
         <local:InitErrToString x:Key="InitErrToString"/>
