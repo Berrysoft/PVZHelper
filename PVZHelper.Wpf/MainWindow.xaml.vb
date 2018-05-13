@@ -1,4 +1,6 @@
-﻿Class MainWindow
+﻿Imports PVZHelper.Cli
+
+Class MainWindow
     Public Sub New()
         InitializeComponent()
 
@@ -22,7 +24,7 @@
 
 #Region "常规"
     Private Sub Window_InitGame(sender As Object, e As RoutedEventArgs)
-        Mode.InitState = InitGame()
+        Mode.InitState = Helper.InitGame()
     End Sub
 
     Private Sub SetSun(sender As Object, e As RoutedEventArgs)
@@ -277,12 +279,12 @@
         If Mode.InitState = InitErr.Success AndAlso znum > 0 Then
             Dim zombies() As Integer = Mode.ZListBox.Select(Function(z) z.Index).ToArray()
             If Mode.NaturalSeed Then
-                Helper.NaturalSeed(zombies, znum)
+                Helper.NaturalSeed(zombies)
             Else
                 If znum = 2 AndAlso ((zombies(0) = 20 AndAlso zombies(1) = 32) OrElse (zombies(0) = 32 AndAlso zombies(1) = 20)) Then
                     Mode.RedLimit = False
                 End If
-                Helper.LimitSeed(zombies, znum, Mode.ThiefLimit, Mode.RedLimit)
+                Helper.LimitSeed(zombies, Mode.ThiefLimit, Mode.RedLimit)
             End If
         End If
     End Sub
@@ -295,8 +297,7 @@
 
     Private Sub SeeLeftZombies(sender As Object, e As RoutedEventArgs)
         If Mode.InitState = InitErr.Success Then
-            Helper.SeeLeft()
-            Dim zombies = Enumerable.Range(0, 33).Select(Function(index) If(Helper.SeeLeftZombie(index), zList(index), Nothing))
+            Dim zombies = Helper.SeeLeftZombies().Select(Function(left, index) If(left, zList(index), Nothing))
             Dim str As String = String.Join(vbCrLf, zombies.Where(Function(s) s IsNot Nothing).Select(Function(s, index) $"{index + 1}.{s}").ToArray())
             If String.IsNullOrWhiteSpace(str) Then
                 MessageBox.Show("无", "剩余出怪种类")
@@ -308,8 +309,7 @@
 
     Private Sub AddLeftZombies(sender As Object, e As RoutedEventArgs)
         If Mode.InitState = InitErr.Success Then
-            Helper.SeeLeft()
-            Dim zombies = Enumerable.Range(0, 33).Select(Function(index) If(Helper.SeeLeftZombie(index), New Zombie(zList(index), index), Nothing)).Where(Function(z) z IsNot Nothing)
+            Dim zombies = Helper.SeeLeftZombies().Select(Function(left, index) If(left, New Zombie(zList(index), index), Nothing)).Where(Function(z) z IsNot Nothing)
             For Each z In zombies
                 If Not Mode.ZListBox.Contains(z) Then
                     Mode.ZListBox.Add(z)
@@ -397,7 +397,7 @@
     Private Function RefreshF() As Boolean
         If Mode.InitState = InitErr.Success Then
             Dim num As Integer = Helper.GetFlowerNum()
-            Dim flowers = Enumerable.Range(0, num).Select(Function(id) New Flower(id, GetFlower(id), GetFSize(id), GetFDir(id), GetFPlace(id)))
+            Dim flowers = Enumerable.Range(0, num).Select(Function(id) New Flower(id, Helper.GetFlower(id), Helper.GetFSize(id), Helper.GetFDir(id), Helper.GetFPlace(id)))
             Mode.Flowers = New ObjectModel.ObservableCollection(Of Flower)(flowers)
             Return True
         Else

@@ -3,9 +3,13 @@
 ################################################################################
 
 /.vs
-/PVZHelper/Debug
-/PVZHelper/Release
-/PVZHelper.Wpf/obj
-/PVZHelper.Wpf/bin
-/Debug
-/Release
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/

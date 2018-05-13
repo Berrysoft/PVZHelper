@@ -1,4 +1,5 @@
 ﻿Imports System.Collections.ObjectModel
+Imports PVZHelper.Cli
 
 Class MainViewMode
     Inherits DependencyObject

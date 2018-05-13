@@ -75,6 +75,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controller.vb" />
     <Compile Include="Flower.vb" />
     <Compile Include="FlowerDirButton.vb" />
     <Compile Include="Rule.vb" />
@@ -88,7 +89,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Converter.vb" />
-    <Compile Include="Helper.vb" />
     <Compile Include="MainViewMode.vb" />
     <Compile Include="MainWindow.xaml.vb">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -149,6 +149,12 @@
   <ItemGroup>
     <Resource Include="PVZ_Helper.ico" />
     <Resource Include="small.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PVZHelper.Cli\PVZHelper.Cli.vcxproj">
+      <Project>{5d1d124c-0fb6-4dc3-965f-8e8362b671ec}</Project>
+      <Name>PVZHelper.Cli</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
