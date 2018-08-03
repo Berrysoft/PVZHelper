@@ -19,7 +19,7 @@ public:
 	unsigned char* code;
 	int index;
 	Asm(int page = 1){ code = new unsigned char[4096 * page]; index = 0; }
-	~Asm(){ delete code; }
+	~Asm(){ delete[] code; }
 	void clear(){ index = 0; }
 	void CreateRemoteThread(HANDLE hpro, DWORD ThreadAddr);
 	void add_byte(unsigned char val)
