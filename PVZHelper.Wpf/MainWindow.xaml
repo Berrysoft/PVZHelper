@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:PVZHelper.Wpf"
         xmlns:Themes="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero" x:Class="MainWindow"
         mc:Ignorable="d"
-        Title="PVZ修改器v1.9.10-WPF重制版" Height="615" Width="350" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen"
+        Title="PVZ修改器v1.9.10-WPF重制版" Height="590" Width="350" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen"
         Loaded="Window_InitGame" Icon="small.ico">
     <Window.Resources>
         <local:InitErrToString x:Key="InitErrToString"/>
@@ -174,7 +174,7 @@
                         <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
                     <GroupBox Grid.Row="0" Header="资源">
-                        <Grid Margin="5">
+                        <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="1*"/>
                                 <ColumnDefinition Width="1.5*"/>
@@ -196,7 +196,7 @@
                         </Grid>
                     </GroupBox>
                     <GroupBox Grid.Row="1" Header="除草机">
-                        <UniformGrid Margin="30,5,30,5" Rows="1">
+                        <UniformGrid Margin="30,0" Rows="1">
                             <Button Margin="5" Click="StartCar" Content="启动除草机"/>
                             <Button Margin="5" Click="ResetCar" Content="恢复除草机"/>
                         </UniformGrid>
@@ -225,7 +225,7 @@
                                 <Label VerticalContentAlignment="Center" Content="列"/>
                             </StackPanel>
                         </GroupBox.Header>
-                        <Grid Margin="5">
+                        <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition/>
                                 <RowDefinition/>

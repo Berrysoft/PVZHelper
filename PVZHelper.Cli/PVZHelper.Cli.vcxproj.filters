@@ -18,7 +18,28 @@
     <ClInclude Include="PVZHelper.Cli.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="stdafx.h">
+    <ClInclude Include="Asm.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Process.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="PVZ.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="PVZ_1_0.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="PVZ_1_2_CN_ENDLESS.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="PVZ_1_2_CN_REPAIR.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="PVZ_1_2_EN_1073.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="cli_ptr.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
@@ -29,8 +50,28 @@
     <ClCompile Include="AssemblyInfo.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="stdafx.cpp">
+    <ClCompile Include="Asm.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="Process.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="PVZ_1_0.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="PVZ_1_2_CN_ENDLESS.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="PVZ_1_2_CN_REPAIR.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="PVZ_1_2_EN_1073.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include=".clang-format">
+      <Filter>资源文件</Filter>
+    </None>
   </ItemGroup>
 </Project>
