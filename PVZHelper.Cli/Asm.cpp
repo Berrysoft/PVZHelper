@@ -1,5 +1,5 @@
-#include <Windows.h>
 #include "Asm.h"
+#include <Windows.h>
 
 #pragma warning (push)
 #pragma warning (disable: 4793)
@@ -8,7 +8,8 @@ void static __declspec(naked) volatile sample()
     //#define BLOCK_SIZE 20
 
     //#define EAX 0
-    _asm {
+    _asm
+	{
 #define MOV	0
         mov eax, 0x12345678
 #define MOV_DWORD_PTR_ADD	MOV+5
@@ -21,7 +22,8 @@ void static __declspec(naked) volatile sample()
         mov eax, ds:[0x12345678]	/*eax6个字节，其他寄存器7个字节，VS2013下*/
     }
     //#define EBX EAX+BLOCK_SIZE-1
-    _asm {
+    _asm
+	{
         mov ebx, 0x12345678
         mov ebx, [ebx + 0x12345678]
         push ebx
@@ -29,7 +31,8 @@ void static __declspec(naked) volatile sample()
         mov ebx, ds :[0x12345678]
     }
     //#define ECX EBX+BLOCK_SIZE
-    _asm {
+    _asm
+	{
         mov ecx, 0x12345678
         mov ecx, [ecx + 0x12345678]
         push ecx
@@ -37,7 +40,8 @@ void static __declspec(naked) volatile sample()
         mov ecx, ds :[0x12345678]
     }
     //#define EDX ECX+BLOCK_SIZE
-    _asm {
+    _asm
+	{
         mov edx, 0x12345678
         mov edx, [edx + 0x12345678]
         push edx
@@ -45,7 +49,8 @@ void static __declspec(naked) volatile sample()
         mov edx, ds :[0x12345678]
     }
     //#define ESI EDX+BLOCK_SIZE
-    _asm {
+    _asm
+	{
         mov esi, 0x12345678
         mov esi, [esi + 0x12345678]
         push esi
@@ -53,7 +58,8 @@ void static __declspec(naked) volatile sample()
         mov esi, ds :[0x12345678]
     }
     //#define EDI ESI+BLOCK_SIZE
-    _asm {
+    _asm
+	{
         mov edi, 0x12345678
         mov edi, [edi + 0x12345678]
         push edi
@@ -61,7 +67,8 @@ void static __declspec(naked) volatile sample()
         mov edi, ds :[0x12345678]
     }
     //#define EBP EDI+BLOCK_SIZE
-    _asm {
+    _asm
+	{
         mov ebp, 0x12345678
         mov ebp, [ebp + 0x12345678]
         push ebp
