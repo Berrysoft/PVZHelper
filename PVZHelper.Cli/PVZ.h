@@ -156,10 +156,10 @@ struct Zombie : public Object
 class PVZ
 {
 public:
-    PVZ(std::shared_ptr<Process> p) : asm_(2), process(p) {}
+    PVZ(std::unique_ptr<Process>&& p) : asm_(2), process(std::move(p)) {}
     DECLARE_VIRTUAL(= 0;)
 public:
-    std::shared_ptr<Process> process;
+    std::unique_ptr<Process> process;
     std::vector<Plant> vp;
     std::vector<Item> vi;
     std::vector<Car> vc;
@@ -184,8 +184,8 @@ public:
 
 struct Map
 {
-    Map(std::shared_ptr<Process> p) : process(p) {}
-    std::shared_ptr<Process> process;
+    Map(Process* p) : process(p) {}
+    Process* process;
     int Type;
     int GetRowCount()
     {

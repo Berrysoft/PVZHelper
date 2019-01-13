@@ -3,7 +3,7 @@
 class PVZ_1_2_CN_ENDLESS : public PVZ
 {
 public:
-    PVZ_1_2_CN_ENDLESS(std::shared_ptr<Process> p) : PVZ(p) {}
+    PVZ_1_2_CN_ENDLESS(std::unique_ptr<Process>&& p) : PVZ(std::move(p)) {}
     DECLARE_VIRTUAL(;)
     DECLARE_ASM
     void GetPlants()
@@ -84,7 +84,7 @@ public:
 
 struct Map_1_2_CN_ENDLESS : public Map
 {
-    Map_1_2_CN_ENDLESS(std::shared_ptr<Process> p) : Map(p)
+    Map_1_2_CN_ENDLESS(Process* p) : Map(p)
     {
         Type = process->ReadMemory(4, 0x755e0c, 2, 0x868, 0x5564);
     }

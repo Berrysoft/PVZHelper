@@ -3,7 +3,7 @@
 class PVZ_1_2_EN_1073 : public PVZ
 {
 public:
-    PVZ_1_2_EN_1073(std::shared_ptr<Process> p) : PVZ(p) {}
+    PVZ_1_2_EN_1073(std::unique_ptr<Process>&& p) : PVZ(std::move(p)) {}
     DECLARE_VIRTUAL(;)
     DECLARE_ASM
     void GetPlants()
@@ -84,7 +84,7 @@ public:
 
 struct Map_1_2_EN_1073 : public Map
 {
-    Map_1_2_EN_1073(std::shared_ptr<Process> p) : Map(p)
+    Map_1_2_EN_1073(Process* p) : Map(p)
     {
         Type = process->ReadMemory(4, 0x729670, 2, 0x868, 0x5564);
     }

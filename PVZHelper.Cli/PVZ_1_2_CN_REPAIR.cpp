@@ -149,7 +149,7 @@ void PVZ_1_2_CN_REPAIR::Planting(int row, int col, int type, bool copy)
 {
     if (InGame())
     {
-        Map_1_2_CN_REPAIR map(process);
+        Map_1_2_CN_REPAIR map(process.get());
         int Rows = map.GetRowCount();
         int Cols = (type == 47 ? 4 : 9);
         asm_.clear();
@@ -243,7 +243,7 @@ void PVZ_1_2_CN_REPAIR::PutZombie(int row, int col, int type)
             SAFE_THREAD();
             return;
         }
-        Map_1_2_CN_REPAIR map(process);
+        Map_1_2_CN_REPAIR map(process.get());
         int Rows = map.GetRowCount();
         int Cols = 9;
         asm_.clear();
@@ -293,7 +293,7 @@ void PVZ_1_2_CN_REPAIR::PutLadder(int row, int col)
 {
     if (InGame())
     {
-        Map_1_2_CN_REPAIR map(process);
+        Map_1_2_CN_REPAIR map(process.get());
         int Rows = map.GetRowCount();
         int Cols = 9;
         asm_.clear();
@@ -345,7 +345,7 @@ void PVZ_1_2_CN_REPAIR::PutGrave(int row, int col)
 {
     if (InGame())
     {
-        Map_1_2_CN_REPAIR map(process);
+        Map_1_2_CN_REPAIR map(process.get());
         int Rows = map.GetRowCount();
         int Cols = 9;
         asm_.clear();
@@ -396,7 +396,7 @@ void PVZ_1_2_CN_REPAIR::AutoLadder()
                 HasLadder[ri.Row][ri.Col] = true;
             }
         }
-        Map_1_2_CN_REPAIR map(process);
+        Map_1_2_CN_REPAIR map(process.get());
         GetPlants();
         for (auto& rp : vp)
         {
@@ -428,7 +428,7 @@ void PVZ_1_2_CN_REPAIR::AutoLadder()
 //{
 //	if (InGame())
 //	{
-//		Map_1_2_CN_REPAIR map(process);
+//		Map_1_2_CN_REPAIR map(process.get());
 //		int Rows = map.GetRowCount();
 //		int Cols = 9;
 //		asm_.clear();
@@ -475,7 +475,7 @@ void PVZ_1_2_CN_REPAIR::AutoLadder()
 
 void PVZ_1_2_CN_REPAIR::SetBlock(int row, int col, int type)
 {
-    Map_1_2_CN_REPAIR map(process);
+    Map_1_2_CN_REPAIR map(process.get());
     int Rows = map.GetRowCount();
     int Cols = 9;
     if (row == -1 && col == -1)
@@ -510,7 +510,7 @@ void PVZ_1_2_CN_REPAIR::SetBlock(int row, int col, int type)
 
 void PVZ_1_2_CN_REPAIR::SetRow(int row, int type)
 {
-    Map_1_2_CN_REPAIR map(process);
+    Map_1_2_CN_REPAIR map(process.get());
     map.SetRow(row, type);
 }
 
