@@ -1,5 +1,6 @@
 #include "Process.h"
 #include <TlHelp32.h>
+#include <cstdarg>
 
 static BOOL EnableDebugPrivilege()
 {
@@ -32,12 +33,14 @@ DWORD Process::ReadMemory(DWORD size, DWORD base, int argnum, ...)
     else
     {
         ReadProcessMemory(hpro, LPCVOID(base), &ret, 4, 0);
-        int* arg = &argnum;
+        va_list args;
+        va_start(args, argnum);
         for (int i = 1; i < argnum; ++i)
         {
-            ReadProcessMemory(hpro, LPCVOID(ret + arg[i]), &ret, 4, 0);
+            ReadProcessMemory(hpro, LPCVOID(ret + va_arg(args, int)), &ret, 4, 0);
         }
-        ReadProcessMemory(hpro, LPCVOID(ret + arg[argnum]), &ret, size, 0);
+        ReadProcessMemory(hpro, LPCVOID(ret + va_arg(args, int)), &ret, size, 0);
+        va_end(args);
     }
     return ret;
 }
@@ -56,12 +59,14 @@ void Process::WriteMemory(DWORD val, DWORD size, DWORD base, int argnum, ...)
     {
         DWORD temp;
         ReadProcessMemory(hpro, LPCVOID(base), &temp, 4, 0);
-        int* arg = &argnum;
+        va_list args;
+        va_start(args, argnum);
         for (int i = 1; i < argnum; ++i)
         {
-            ReadProcessMemory(hpro, LPCVOID(temp + arg[i]), &temp, 4, 0);
+            ReadProcessMemory(hpro, LPCVOID(temp + va_arg(args, int)), &temp, 4, 0);
         }
-        WriteProcessMemory(hpro, LPVOID(temp + arg[argnum]), &val, size, 0);
+        WriteProcessMemory(hpro, LPVOID(temp + va_arg(args, int)), &val, size, 0);
+        va_end(args);
     }
 }
 
@@ -76,12 +81,14 @@ void Process::WriteArrayMemory(void* data, DWORD size, DWORD base, int argnum, .
     }
     DWORD temp;
     ReadProcessMemory(hpro, LPCVOID(base), &temp, 4, 0);
-    int* arg = &argnum;
+    va_list args;
+    va_start(args, argnum);
     for (int i = 1; i < argnum; ++i)
     {
-        ReadProcessMemory(hpro, LPCVOID(temp + arg[i]), &temp, 4, 0);
+        ReadProcessMemory(hpro, LPCVOID(temp + va_arg(args, int)), &temp, 4, 0);
     }
-    WriteProcessMemory(hpro, LPVOID(temp + arg[argnum]), data, size, 0);
+    WriteProcessMemory(hpro, LPVOID(temp + va_arg(args, int)), data, size, 0);
+    va_end(args);
 }
 #pragma warning(pop)
 
