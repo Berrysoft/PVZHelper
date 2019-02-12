@@ -1322,7 +1322,7 @@ Class MainViewMode
         End Set
     End Property
 
-    Public Shared ReadOnly ThiefLimitProperty As DependencyProperty = DependencyProperty.Register(NameOf(ThiefLimit), GetType(Boolean), GetType(MainViewMode))
+    Public Shared ReadOnly ThiefLimitProperty As DependencyProperty = DependencyProperty.Register(NameOf(ThiefLimit), GetType(Boolean), GetType(MainViewMode), New PropertyMetadata(False, AddressOf LimitPropertyChanged))
     Public Property ThiefLimit As Boolean
         Get
             Return GetValue(ThiefLimitProperty)
@@ -1331,8 +1331,15 @@ Class MainViewMode
             SetValue(ThiefLimitProperty, value)
         End Set
     End Property
+    Private Shared Sub LimitPropertyChanged(d As DependencyObject, e As DependencyPropertyChangedEventArgs)
+        Dim mode As MainViewMode = d
+        If Not mode.NaturalSeed Then
+            Dim zombies() As Integer = Helper.SeeLeftZombies().Select(Function(left, index) If(left, New Integer?(index), Nothing)).Where(Function(z) z IsNot Nothing).Select(Function(i) i.value()).ToArray()
+            Helper.LimitSeed(zombies, mode.ThiefLimit, mode.RedLimit)
+        End If
+    End Sub
 
-    Public Shared ReadOnly RedLimitProperty As DependencyProperty = DependencyProperty.Register(NameOf(RedLimit), GetType(Boolean), GetType(MainViewMode))
+    Public Shared ReadOnly RedLimitProperty As DependencyProperty = DependencyProperty.Register(NameOf(RedLimit), GetType(Boolean), GetType(MainViewMode), New PropertyMetadata(False, AddressOf LimitPropertyChanged))
     Public Property RedLimit As Boolean
         Get
             Return GetValue(RedLimitProperty)

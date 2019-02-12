@@ -701,10 +701,10 @@
                                 <Button Grid.Column="1" Grid.Row="2" Margin="5" Click="ShowZombiesEditionDiscription" Content="说明"/>
                                 <RadioButton Grid.Column="0" Grid.Row="4" Margin="5" VerticalContentAlignment="Center" VerticalAlignment="Center" IsChecked="{Binding NaturalSeed, Mode=TwoWay}" Content="自然刷怪"/>
                                 <RadioButton Grid.Column="1" Grid.Row="4" Margin="5" VerticalContentAlignment="Center" VerticalAlignment="Center" Content="极限刷怪"/>
-                                <Button Grid.Column="0" Grid.Row="6" Margin="5" IsEnabled="{Binding ZListBox.Count}" Click="SetSeed" Content="确认修改"/>
-                                <Button Grid.Column="1" Grid.Row="6" Margin="5" Click="ResetSeed" Content="恢复原始"/>
-                                <CheckBox Grid.Column="0" Grid.Row="5" Margin="5" VerticalContentAlignment="Center" VerticalAlignment="Center" IsChecked="{Binding ThiefLimit, Mode=TwoWay}" Content="极限飞贼"/>
-                                <CheckBox Grid.Column="1" Grid.Row="5" Margin="5" VerticalContentAlignment="Center" VerticalAlignment="Center" IsChecked="{Binding RedLimit, Mode=TwoWay}" Content="极限红眼"/>
+                                <Button Grid.Column="0" Grid.Row="5" Margin="5" IsEnabled="{Binding ZListBox.Count}" Click="SetSeed" Content="确认修改"/>
+                                <Button Grid.Column="1" Grid.Row="5" Margin="5" Click="ResetSeed" Content="恢复原始"/>
+                                <CheckBox Grid.Column="0" Grid.Row="6" Margin="5" VerticalContentAlignment="Center" VerticalAlignment="Center" IsChecked="{Binding ThiefLimit, Mode=TwoWay}" Content="极限飞贼"/>
+                                <CheckBox Grid.Column="1" Grid.Row="6" Margin="5" VerticalContentAlignment="Center" VerticalAlignment="Center" IsChecked="{Binding RedLimit, Mode=TwoWay}" Content="极限红眼"/>
                                 <Button Grid.Column="0" Grid.Row="3" Margin="5" Click="SeeLeftZombies" Content="查看剩余"/>
                                 <Button Grid.Column="1" Grid.Row="3" Margin="5" Click="AddLeftZombies" Content="添加剩余"/>
                             </Grid>
@@ -806,22 +806,6 @@
                             </ListView.View>
                         </ListView>
                     </GroupBox>
-                    <!--<GroupBox Grid.Row="3" Header="修改植物">
-                        <UniformGrid Columns="3">
-                            <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Content="修改为"/>
-                            <ComboBox Margin="5" ItemsSource="{Binding FlowerList}" SelectedIndex="{Binding FlowerListSelectedIndex, Mode=TwoWay}"/>
-                            <Button Margin="5" Click="ChangeFlower" Content="确定"/>
-                            <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Content="体型为"/>
-                            <ComboBox Margin="5" ItemsSource="{Binding FlowerSize}" SelectedIndex="{Binding FlowerSizeSelectedIndex, Mode=TwoWay}"/>
-                            <Button Margin="5" Click="ChangeFSize" Content="确定"/>
-                            <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Content="花盆方向"/>
-                            <Button Margin="30,5,30,5" Click="FlowerLeft" Content="←"/>
-                            <Button Margin="30,5,30,5" Click="FlowerRight" Content="→"/>
-                            <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Content="花盆位于"/>
-                            <ComboBox Margin="5" ItemsSource="{Binding FlowerPlace}" SelectedIndex="{Binding FlowerPlaceSelectedIndex, Mode=TwoWay}"/>
-                            <Button Margin="5" Click="ChangeFPlace" Content="确定"/>
-                        </UniformGrid>
-                    </GroupBox>-->
                 </Grid>
             </TabItem>
         </TabControl>
