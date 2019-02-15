@@ -1,4 +1,5 @@
-﻿Imports PVZHelper.Cli
+﻿Imports System.Reflection
+Imports PVZHelper.Cli
 
 Class MainWindow
     Public Sub New()
@@ -16,6 +17,8 @@ Class MainWindow
         Mode.FlowerList = fList
         Mode.FlowerSize = fsList
         Mode.FlowerPlace = fpList
+
+        Title = String.Format("PVZ修改器v{0}", Assembly.GetExecutingAssembly().GetName().Version)
     End Sub
 
     Private Sub ShowClub(sender As Object, e As RoutedEventArgs)
@@ -233,10 +236,10 @@ Class MainWindow
 
 #Region "调节"
     Private Sub ShowZombiesEditionDiscription(sender As Object, e As RoutedEventArgs)
-        MessageBox.Show("1.自然刷怪只修改了出怪种子，出怪列表则是调用了游戏自身的函数来决定" & vbCrLf &
-                        "2.僵尸并非<完全>由种子控制，也受自身属性影响" & vbCrLf &
-                "3.在某些情况下自然刷怪，修改器会进行某种干预以保证游戏不崩溃" & vbCrLf &
-                "4.极限刷怪平均填充出怪列表，不修改出怪种子，默认不对任何僵尸做特殊处理", "刷怪说明", MessageBoxButton.OK, MessageBoxImage.Information)
+        MessageBox.Show("1.自然刷怪只修改了出怪种子，出怪列表则是调用了游戏自身的函数来决定
+2.僵尸并非<完全>由种子控制，也受自身属性影响
+3.在某些情况下自然刷怪，修改器会进行某种干预以保证游戏不崩溃
+4.极限刷怪平均填充出怪列表，不修改出怪种子，默认不对任何僵尸做特殊处理", "刷怪说明", MessageBoxButton.OK, MessageBoxImage.Information)
     End Sub
 
     Private Sub SetCardNum(sender As Object, e As RoutedEventArgs)
@@ -297,8 +300,8 @@ Class MainWindow
 
     Private Sub SeeLeftZombies(sender As Object, e As RoutedEventArgs)
         If Mode.InitState = InitErr.Success Then
-            Dim zombies = Helper.SeeLeftZombies().Select(Function(left, index) If(left, zList(index), Nothing))
-            Dim str As String = String.Join(vbCrLf, zombies.Where(Function(s) s IsNot Nothing).Select(Function(s, index) $"{index + 1}.{s}").ToArray())
+            Dim zombies = Helper.SeeLeftZombies().Select(Function(left, index) zList(index))
+            Dim str As String = String.Join(vbCrLf, zombies.Select(Function(s, index) $"{index + 1}.{s}"))
             If String.IsNullOrWhiteSpace(str) Then
                 MessageBox.Show("无", "剩余出怪种类")
             Else
@@ -309,7 +312,7 @@ Class MainWindow
 
     Private Sub AddLeftZombies(sender As Object, e As RoutedEventArgs)
         If Mode.InitState = InitErr.Success Then
-            Dim zombies = Helper.SeeLeftZombies().Select(Function(left, index) If(left, New Zombie(zList(index), index), Nothing)).Where(Function(z) z IsNot Nothing)
+            Dim zombies = Helper.SeeLeftZombies().Select(Function(index) New Zombie(zList(index), index))
             For Each z In zombies
                 If Not Mode.ZListBox.Contains(z) Then
                     Mode.ZListBox.Add(z)

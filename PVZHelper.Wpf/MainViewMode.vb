@@ -1334,7 +1334,7 @@ Class MainViewMode
     Private Shared Sub LimitPropertyChanged(d As DependencyObject, e As DependencyPropertyChangedEventArgs)
         Dim mode As MainViewMode = d
         If Not mode.NaturalSeed Then
-            Dim zombies() As Integer = Helper.SeeLeftZombies().Select(Function(left, index) If(left, New Integer?(index), Nothing)).Where(Function(z) z IsNot Nothing).Select(Function(i) i.value()).ToArray()
+            Dim zombies = Helper.SeeLeftZombies().ToArray()
             Helper.LimitSeed(zombies, mode.ThiefLimit, mode.RedLimit)
         End If
     End Sub

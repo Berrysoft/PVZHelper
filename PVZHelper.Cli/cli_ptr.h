@@ -24,18 +24,10 @@ public:
 
     T* operator->() { return ptr; }
     auto operator&() { return &ptr; }
-
-    template <typename D>
-    static operator cli_ptr<T>^(cli_ptr<D>^ p)
-	{
-        cli_ptr<T>^ result = gcnew cli_ptr<T>(*&p);
-        *&p = nullptr;
-        return result;
-    }
 };
 
-template <typename T, typename... Args>
-cli_ptr<T>^ make_cli(Args&&... args)
+template <typename T, typename D = T, typename... Args>
+cli_ptr<D>^ make_cli(Args&&... args)
 {
-    return gcnew cli_ptr<T>(new T(std::forward<Args>(args)...));
+    return gcnew cli_ptr<D>(new T(std::forward<Args>(args)...));
 }

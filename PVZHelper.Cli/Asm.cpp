@@ -102,7 +102,7 @@ void Asm::CreateRemoteThread(HANDLE hpro, DWORD ThreadAddr)
     }
     if (ThreadAddr)
     {
-        WriteProcessMemory(hpro, (LPVOID)ThreadAddr, code, index, 0);
+        WriteProcessMemory(hpro, (LPVOID)ThreadAddr, code.get(), index, 0);
         HANDLE hth = ::CreateRemoteThread(hpro, NULL, 0, LPTHREAD_START_ROUTINE(ThreadAddr), NULL, 0, NULL);
         WaitForSingleObject(hth, INFINITE);
         CloseHandle(hth);

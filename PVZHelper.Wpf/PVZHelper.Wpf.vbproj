@@ -20,7 +20,7 @@
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <IncrementalBuild>true</IncrementalBuild>
-    <OutputPath>..\Debug\</OutputPath>
+    <OutputPath>bin\Debug\</OutputPath>
     <DocumentationFile>PVZHelper.Wpf.xml</DocumentationFile>
     <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42314</NoWarn>
   </PropertyGroup>
@@ -32,7 +32,7 @@
     <DefineTrace>true</DefineTrace>
     <IncrementalBuild>false</IncrementalBuild>
     <Optimize>true</Optimize>
-    <OutputPath>..\Release\</OutputPath>
+    <OutputPath>bin\Release\</OutputPath>
     <DocumentationFile>PVZHelper.Wpf.xml</DocumentationFile>
     <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42314</NoWarn>
   </PropertyGroup>
