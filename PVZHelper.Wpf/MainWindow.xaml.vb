@@ -300,7 +300,7 @@ Class MainWindow
 
     Private Sub SeeLeftZombies(sender As Object, e As RoutedEventArgs)
         If Mode.InitState = InitErr.Success Then
-            Dim zombies = Helper.SeeLeftZombies().Select(Function(left, index) zList(index))
+            Dim zombies = Helper.SeeLeftZombies().Select(Function(left, index) zList(left))
             Dim str As String = String.Join(vbCrLf, zombies.Select(Function(s, index) $"{index + 1}.{s}"))
             If String.IsNullOrWhiteSpace(str) Then
                 MessageBox.Show("无", "剩余出怪种类")
@@ -335,65 +335,16 @@ Class MainWindow
         End If
     End Sub
 
-    'Private Sub ChangeFlower(sender As Object, e As RoutedEventArgs)
-    '    If Mode.InitState = InitErr.Success Then
-    '        Dim id As Integer = Mode.FlowerIndex
-    '        Helper.ChangeFlower(Mode.FlowerIndex, Mode.FlowerListSelectedIndex)
-    '        RefreshF()
-    '        Mode.FlowerIndex = id
-    '    End If
-    'End Sub
-
-    'Private Sub ChangeFSize(sender As Object, e As RoutedEventArgs)
-    '    If Mode.InitState = InitErr.Success Then
-    '        Dim id As Integer = Mode.FlowerIndex
-    '        Helper.ChangeFSize(Mode.FlowerIndex, Mode.FlowerSizeSelectedIndex)
-    '        RefreshF()
-    '        Mode.FlowerIndex = id
-    '    End If
-    'End Sub
-
     Private Sub ChangeFDir(sender As Object, e As RoutedEventArgs)
         Dim button = CType(e.Source, Button)
-        If button.Content = 1 Then
+        If Integer.Parse(button.Content) = 1 Then
             button.Content = 0
         Else
             button.Content = 1
         End If
     End Sub
 
-    'Private Sub FlowerLeft(sender As Object, e As RoutedEventArgs)
-    '    If Mode.InitState = InitErr.Success Then
-    '        Dim id As Integer = Mode.FlowerIndex
-    '        Helper.ChangeFDir(Mode.FlowerIndex, 1)
-    '        RefreshF()
-    '        Mode.FlowerIndex = id
-    '    End If
-    'End Sub
-
-    'Private Sub FlowerRight(sender As Object, e As RoutedEventArgs)
-    '    If Mode.InitState = InitErr.Success Then
-    '        Dim id As Integer = Mode.FlowerIndex
-    '        Helper.ChangeFDir(Mode.FlowerIndex, 0)
-    '        RefreshF()
-    '        Mode.FlowerIndex = id
-    '    End If
-    'End Sub
-
-    'Private Sub ChangeFPlace(sender As Object, e As RoutedEventArgs)
-    '    If Mode.InitState = InitErr.Success Then
-    '        Dim id As Integer = Mode.FlowerIndex
-    '        Helper.ChangeFPlace(Mode.FlowerIndex, Mode.FlowerPlaceSelectedIndex)
-    '        RefreshF()
-    '        Mode.FlowerIndex = id
-    '    End If
-    'End Sub
-
     Private Sub RefreshFlowers(sender As Object, e As RoutedEventArgs)
-        'If RefreshF() Then
-        '    Mode.FlowerIndex = -1
-        '    Mode.FlowerIndex = 0
-        'End If
         RefreshF()
     End Sub
 

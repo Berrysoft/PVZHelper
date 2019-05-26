@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "PVZHelper.Wpf": {
+      "commandName": "Project",
+      "nativeDebugging": true
+    }
+  }
+}
