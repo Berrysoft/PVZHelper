@@ -4,6 +4,8 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>PVZHelper.Wpf</RootNamespace>
     <TargetFrameworks>net48</TargetFrameworks>
+    <AssemblyVersion>1.9.10.0</AssemblyVersion>
+    <FileVersion>1.9.10.0</FileVersion>
     <PlatformTarget>x86</PlatformTarget>
     <UseWPF>true</UseWPF>
     <ApplicationIcon>PVZ_Helper.ico</ApplicationIcon>
@@ -32,11 +34,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Reference Include="PresentationCore" />
-    <Reference Include="PresentationFramework" />
     <Reference Include="PresentationFramework.Aero" />
-    <Reference Include="WindowsBase" />
-    <Reference Include="System.Xaml" />
   </ItemGroup>
 
   <ItemGroup>
