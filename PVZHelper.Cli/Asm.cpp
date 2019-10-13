@@ -19,7 +19,7 @@ void static __declspec(naked) volatile sample()
 #define POP		PUSH+1
         pop eax
 #define MOV_DWORD_PTR		POP+1
-        mov eax, ds:[0x12345678]	/*eax6¸ö×Ö½Ú£¬ÆäËû¼Ä´æÆ÷7¸ö×Ö½Ú£¬VS2013ÏÂ*/
+        mov eax, ds:[0x12345678]	/*eax6ä¸ªå­—èŠ‚ï¼Œå…¶ä»–å¯„å­˜å™¨7ä¸ªå­—èŠ‚ï¼ŒVS2013ä¸‹*/
     }
     //#define EBX EAX+BLOCK_SIZE-1
     _asm

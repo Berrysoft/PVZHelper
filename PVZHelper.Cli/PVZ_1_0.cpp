@@ -1383,7 +1383,7 @@ void PVZ_1_0::InitExtraCode()
             process->WriteMemory(temp, 4, 0x00426fb7);
     }
     DWORD Caller;
-    /*´«ËÍÃÅ*/
+    /*ä¼ é€é—¨*/
     if (!b)
     {
         Caller = 0x0042706c;
@@ -1392,7 +1392,7 @@ void PVZ_1_0::InitExtraCode()
         WRITE_CODE(DoorCode);
     }
     temp += SIZE_OF(DoorCode);
-    /*ĞĞÅĞ¶¨*/
+    /*è¡Œåˆ¤å®š*/
     eCode.Row = temp;
     if (!b)
     {
@@ -1402,7 +1402,7 @@ void PVZ_1_0::InitExtraCode()
         WRITE_CODE(RowCode);
     }
     temp += SIZE_OF(RowCode);
-    /*ÁĞÅĞ¶¨*/
+    /*åˆ—åˆ¤å®š*/
     eCode.Col = temp;
     if (!b)
     {
@@ -1412,7 +1412,7 @@ void PVZ_1_0::InitExtraCode()
         WRITE_CODE(ColCode);
     }
     temp += SIZE_OF(ColCode);
-    /*ĞĞÉËº¦ÅĞ¶¨*/
+    /*è¡Œä¼¤å®³åˆ¤å®š*/
     eCode.RHurt = temp;
     if (!b)
     {
@@ -1422,7 +1422,7 @@ void PVZ_1_0::InitExtraCode()
         WRITE_CODE(RHurtCode);
     }
     temp += SIZE_OF(RHurtCode);
-    /*ÁĞÉËº¦ÅĞ¶¨*/
+    /*åˆ—ä¼¤å®³åˆ¤å®š*/
     eCode.CHurt = temp;
     if (!b)
     {
@@ -1432,7 +1432,7 @@ void PVZ_1_0::InitExtraCode()
         WRITE_CODE(CHurtCode);
     }
     temp += SIZE_OF(CHurtCode);
-    /*ÏãÆÑÃâĞĞÅĞ¶¨*/
+    /*é¦™è’²å…è¡Œåˆ¤å®š*/
     eCode.CatR = temp;
     if (!b)
     {
@@ -1442,7 +1442,7 @@ void PVZ_1_0::InitExtraCode()
         WRITE_CODE(CatRCode);
     }
     temp += SIZE_OF(CatRCode);
-    /*ÏãÆÑÃâÁĞÅĞ¶¨*/
+    /*é¦™è’²å…åˆ—åˆ¤å®š*/
     eCode.CatC = temp;
     if (!b)
     {
@@ -1452,7 +1452,7 @@ void PVZ_1_0::InitExtraCode()
         WRITE_CODE(CatCCode);
     }
     temp += SIZE_OF(CatCCode);
-    /*Í¶ÊÖÌØÊâ´¦Àí*/
+    /*æŠ•æ‰‹ç‰¹æ®Šå¤„ç†*/
     eCode.Throw = temp;
     if (!b)
     {
@@ -1462,7 +1462,7 @@ void PVZ_1_0::InitExtraCode()
         WRITE_CODE(ThrowCode);
     }
     temp += SIZE_OF(ThrowCode);
-    /*Ã¨Ê½È«ÆÁ×Óµ¯·½Ïò´¦Àí*/
+    /*çŒ«å¼å…¨å±å­å¼¹æ–¹å‘å¤„ç†*/
     eCode.CatDir = temp;
     if (!b)
     {
@@ -1472,7 +1472,7 @@ void PVZ_1_0::InitExtraCode()
         WRITE_CODE(CatDirCode);
     }
     temp += SIZE_OF(CatDirCode);
-    /*ÁÑ¼Ô´¦Àí*/
+    /*è£‚èšå¤„ç†*/
     eCode.Split = temp;
     if (!b)
     {
@@ -1482,7 +1482,7 @@ void PVZ_1_0::InitExtraCode()
         WRITE_CODE(SplitCode);
     }
     temp += SIZE_OF(SplitCode);
-    /*Ë¢¹Öµ¹¼ÆÊ±*/
+    /*åˆ·æ€ªå€’è®¡æ—¶*/
     eCode.ZTimer = temp;
     if (!b)
     {
@@ -1492,7 +1492,7 @@ void PVZ_1_0::InitExtraCode()
         WRITE_CODE(ZTimerCode);
     }
     temp += SIZE_OF(ZTimerCode);
-    /*½©²©ÍÂÇòĞĞ*/
+    /*åƒµåšåçƒè¡Œ*/
     if (!b)
     {
         Caller = 0x00535484;
@@ -1509,7 +1509,7 @@ void PVZ_1_0::InitExtraCode()
         WRITE_CODE(GetRVRowsCode);
     }
     temp += SIZE_OF(GetRVRowsCode);
-    /*´«ËÍÃÅĞĞ*/
+    /*ä¼ é€é—¨è¡Œ*/
     if (!b)
     {
         Caller = 0x00427535;

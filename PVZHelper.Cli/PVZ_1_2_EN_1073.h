@@ -88,19 +88,19 @@ struct Map_1_2_EN_1073 : public Map
     {
         Type = process->ReadMemory(4, 0x729670, 2, 0x868, 0x5564);
     }
-    int GetBlock(int row, int col) /*1.²ÝµØ2.ÂãµØ3.Ë®³Ø*/
+    int GetBlock(int row, int col) /*1.è‰åœ°2.è£¸åœ°3.æ°´æ± */
     {
         return process->ReadMemory(4, 0x729670, 2, 0x868, 0x180 + row * 4 + col * 24);
     }
-    void SetBlock(int row, int col, int type) /*1.²ÝµØ2.ÂãµØ3.Ë®³Ø*/
+    void SetBlock(int row, int col, int type) /*1.è‰åœ°2.è£¸åœ°3.æ°´æ± */
     {
         process->WriteMemory(type, 4, 0x729670, 2, 0x868, 0x180 + row * 4 + col * 24);
     }
-    int GetRow(int row) /*0.²»³ö¹Ö1.²ÝµØ2.Ë®Â·*/
+    int GetRow(int row) /*0.ä¸å‡ºæ€ª1.è‰åœ°2.æ°´è·¯*/
     {
         return process->ReadMemory(4, 0x729670, 2, 0x868, 0x5f0 + row * 4);
     }
-    void SetRow(int row, int type) /*0.²»³ö¹Ö1.²ÝµØ2.Ë®Â·*/
+    void SetRow(int row, int type) /*0.ä¸å‡ºæ€ª1.è‰åœ°2.æ°´è·¯*/
     {
         process->WriteMemory(type, 4, 0x729670, 2, 0x868, 0x5f0 + row * 4);
     }

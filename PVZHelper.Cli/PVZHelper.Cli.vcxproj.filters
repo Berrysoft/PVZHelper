@@ -39,9 +39,6 @@
     <ClInclude Include="PVZ_1_2_EN_1073.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="cli_ptr.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="PVZHelper.Cli.cpp">
@@ -68,10 +65,5 @@
     <ClCompile Include="PVZ_1_2_EN_1073.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include=".clang-format">
-      <Filter>资源文件</Filter>
-    </None>
   </ItemGroup>
 </Project>

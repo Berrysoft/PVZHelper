@@ -84,7 +84,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Asm.h" />
-    <ClInclude Include="cli_ptr.h" />
     <ClInclude Include="Process.h" />
     <ClInclude Include="PVZ.h" />
     <ClInclude Include="PVZHelper.Cli.h" />
@@ -102,9 +101,6 @@
     <ClCompile Include="PVZ_1_2_CN_ENDLESS.cpp" />
     <ClCompile Include="PVZ_1_2_CN_REPAIR.cpp" />
     <ClCompile Include="PVZ_1_2_EN_1073.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include=".clang-format" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

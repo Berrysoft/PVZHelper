@@ -3,7 +3,7 @@
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <RootNamespace>PVZHelper.Wpf</RootNamespace>
-    <TargetFrameworks>net48</TargetFrameworks>
+    <TargetFrameworks>net48;netcoreapp3.0</TargetFrameworks>
     <AssemblyVersion>1.9.10.0</AssemblyVersion>
     <FileVersion>1.9.10.0</FileVersion>
     <PlatformTarget>x86</PlatformTarget>
@@ -33,7 +33,7 @@
     <ProjectReference Include="..\PVZHelper.Cli\PVZHelper.Cli.vcxproj" />
   </ItemGroup>
 
-  <ItemGroup>
+  <ItemGroup Condition="'$(TargetFramework)' == 'net48'">
     <Reference Include="PresentationFramework.Aero" />
   </ItemGroup>
 
